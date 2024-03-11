@@ -1,0 +1,21 @@
+#prac3_DS
+> dataset = read.csv("Iris.csv")
+> dataset$state=factor(dataset, levels=c("Iris-setosa", "Iris-versicolor", "Iris-virginica"))
+> dataset$state
+> install.packages("caTools")
+> library(caTools)
+> split=sample.split(dataset$Species, SplitRatio = 0.8)
+> training_set=subset(dataset, split==FALSE)
+> regresssor=lm(formula = Species~., data = training_set)
+> y_pred = predict(regressor, newdata=test_set)
+>lsfit(iris$Petal.Length, iris$Petal.Width)$coefficients
+> plot(iris$Petal.Length, iris$Petal.Width, pch=21,
++     bg=c("red","green3","blue")[unclass(iris$Species)], main="Iris Data", xlab="Petal length",
++     ylab="Petal width")
+> abline(lsfit(iris$Petal.Length, iris$Petal.Width)$coefficients, col="black")
+> lm(Petal.Width ~ Petal.Length, data=iris)$coefficients
+> plot(iris$Petal.Length, iris$Petal.Width, pch=21,
++     bg=c("red","green3","blue")[unclass(iris$Species)], main="Iris Data", xlab="Petal length",
++     ylab="Petal width")
+> abline(lm(Petal.Width ~ Petal.Length, data=iris)$coefficients, col="black")
+> summary(lm(Petal.Width ~ Petal.Length, data=iris))
